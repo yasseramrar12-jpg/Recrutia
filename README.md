@@ -1,4 +1,5 @@
 # RECRUT'IA — Assistant de recrutement : analyseur de CV intelligent
+[![CI](https://github.com/yasseramrar12-jpg/Recrutia/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/yasseramrar12-jpg/Recrutia/actions/workflows/ci.yml)
 
 Projet de génie logiciel : application web permettant aux RH de téléverser des CV (PDF)
 et une fiche de poste ; l'IA (NLP) note la correspondance et classe les candidats.
