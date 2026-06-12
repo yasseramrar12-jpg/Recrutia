@@ -3,7 +3,7 @@
 
 Projet de génie logiciel : application web permettant aux RH de téléverser des CV (PDF)
 et une fiche de poste ; l'IA (NLP) note la correspondance et classe les candidats.
-Voir le **dossier technique** pour la modélisation UML complète.
+Voir le **dossier technique** pour la modélisation UML complète..
 
 ## Architecture
 
