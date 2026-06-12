@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.db
+backend/stockage_cvs/
+backend/test_stockage_cvs/
+node_modules/
+frontend/dist/
+.env
