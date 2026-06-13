@@ -8,7 +8,7 @@ export function deconnecter() {
   localStorage.removeItem("jeton");
   localStorage.removeItem("nom");
 }
-const BASE_URL = import.meta.env.VITE_API_URL || "";
+const BASE_URL = "";
 
 async function requete(chemin, options = {}) {
   const entetes = { ...(options.headers || {}) };
