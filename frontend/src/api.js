@@ -8,6 +8,7 @@ export function deconnecter() {
   localStorage.removeItem("jeton");
   localStorage.removeItem("nom");
 }
+const BASE_URL = import.meta.env.VITE_API_URL || "";
 
 async function requete(chemin, options = {}) {
   const entetes = { ...(options.headers || {}) };
@@ -16,7 +17,8 @@ async function requete(chemin, options = {}) {
     entetes["Content-Type"] = "application/json";
     options.body = JSON.stringify(options.json);
   }
-  const reponse = await fetch(chemin, { ...options, headers: entetes });
+  const reponse = await fetch(`${BASE_URL}${chemin}`, { ...options, headers: entetes });
+
   if (!reponse.ok) {
     let detail = `Erreur ${reponse.status}`;
     try {
