@@ -1,11 +1,10 @@
 """Point d'entrée de l'API RECRUT'IA.
-
 Lancement :  uvicorn app.main:app --reload
 Documentation interactive : http://localhost:8000/docs
 """
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-
+from fastapi.responses import JSONResponse
 from .database import Base, engine
 from .routers import analyses, auth, offres
 
@@ -28,12 +27,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
+@app.options("/{rest_of_path:path}")
+async def preflight_handler(request: Request, rest_of_path: str):
+    return JSONResponse(
+        content={},
+        headers={
+            "Access-Control-Allow-Origin": "https://recrutia-eight.vercel.app",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "*",
+        },
+    )
 
 app.include_router(auth.router)
 app.include_router(offres.router)
 app.include_router(analyses.router)
-
 
 @app.get("/api/sante", tags=["Supervision"])
 def sante():
