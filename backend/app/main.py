@@ -19,11 +19,18 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+    "http://localhost:5173",
+    "https://recrutia-eight.vercel.app",
+    "https://recrutia-gacembellkacem-7152s-projects.vercel.app",
+    "https://recrutia-erl8579hy-gacembelkacem-7152s-projects.vercel.app",
+    ],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
 
 app.include_router(auth.router)
 app.include_router(offres.router)
