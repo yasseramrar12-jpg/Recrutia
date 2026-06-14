@@ -19,13 +19,16 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173",
-        "https://recrutia-eight.vercel.app",
+    "http://localhost:5173",
+    "https://recrutia-eight.vercel.app",
+    "https://recrutia-production-d2db.up.railway.app",
     ],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
 
 @app.options("/{rest_of_path:path}")
 async def preflight_handler(request: Request, rest_of_path: str):
